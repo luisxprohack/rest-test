@@ -1,0 +1,162 @@
+<aside
+	class="main-sidebar">
+	<!-- sidebar: style can be found in sidebar.less -->
+	<section
+		class="sidebar">
+		<!-- Sidebar user panel -->
+		<div class="user-panel">
+			<div class="pull-left image">
+				<img src="{{urlBase('resources/assets/img/avatar.png')}}" class="img-circle" alt="User Image">
+			</div>
+			<div class="pull-left info">
+				<p>{{ auth().empleado }}</p>
+				<a href="#">
+					<i class="fa fa-circle text-success"></i>
+					Online</a>
+			</div>
+		</div>
+
+		<!-- sidebar menu: : style can be found in sidebar.less -->
+		<ul class="sidebar-menu" data-widget="tree">
+			<li class="header">Menu Navegación</li>
+			<li class="treeview">
+				<a href="#">
+					<i class="fa fa-dashboard"></i>
+					<span>Escritorio</span>
+					<span class="pull-right-container">
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+				<ul class="treeview-menu">
+					<li>
+						<a href="{{ urlBase('inicio') }}">
+							<i class="fa fa-circle-o"></i>
+							Resumen</a>
+					</li>
+				</ul>
+			</li>
+
+			{% if isAdmin() %}
+			<li class="treeview">
+				<a href="#">
+					<i class="fa fa-folder"></i>
+					<span>Mantenimiento</span>
+					<span class="pull-right-container">
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+				<ul class="treeview-menu">
+					<li>
+						<a href="{{ urlBase('cliente') }}">
+							<i class="fa fa-circle-o"></i>
+							Cliente</a>
+					</li>
+					<li>
+						<a href="{{ urlBase('empleado') }}">
+							<i class="fa fa-circle-o"></i>
+							Empleado</a>
+					</li>
+					<li>
+						<a href="{{ urlBase('usuario') }}">
+							<i class="fa fa-circle-o"></i>
+							Usuario</a>
+					</li>
+					<li>
+						<a href="{{ urlBase('mesa') }}">
+							<i class="fa fa-circle-o"></i>
+							Mesa</a>
+					</li>
+
+				</ul>
+			</li>
+			{% endif %}
+
+			{% if isAdmin() %}
+			<li class="treeview">
+				<a href="#">
+					<i class="fa fa-folder"></i>
+					<span>Inventario</span>
+					<span class="pull-right-container">
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+				<ul class="treeview-menu">
+
+					<li>
+						<a href="{{ urlBase('bebida') }}">
+							<i class="fa fa-circle-o"></i>
+							Bebida</a>
+					</li>
+
+					<li>
+						<a href="{{ urlBase('plato') }}">
+							<i class="fa fa-circle-o"></i>
+							Plato / Comida</a>
+					</li>
+				</ul>
+			</li>
+			{% endif %}
+
+			<li class="treeview">
+				<a href="#">
+					<i class="fa fa-folder"></i>
+					<span>Venta</span>
+					<span class="pull-right-container">
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+				<ul class="treeview-menu">
+
+					{% if isMozo() or isCocinero() %}
+					<li>
+						<a href="{{ urlBase('pedido') }}">
+							<i class="fa fa-circle-o"></i>
+							Pedido</a>
+					</li>
+					<li>
+						<a href="{{ urlBase('pedido/cocina') }}">
+							<i class="fa fa-circle-o"></i>
+							Cocina</a>
+					</li>
+					{% endif %}
+
+					{% if isAdmin() %}
+					<li>
+						<a href="{{ urlBase('pedido/diario') }}">
+							<i class="fa fa-circle-o"></i>
+							Diario</a>
+					</li>
+					{% endif %}
+				</ul>
+			</li>
+
+			{% if isAdmin() %}
+			<li class="treeview">
+				<a href="#">
+					<i class="fa fa-folder"></i>
+					<span>Reporte</span>
+					<span class="pull-right-container">
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+				<ul class="treeview-menu">
+
+					<li>
+						<a href="{{ urlBase('pedido/total') }}">
+							<i class="fa fa-circle-o"></i>
+							Venta</a>
+					</li>
+
+					<li>
+						<a href="{{ urlBase('egreso') }}">
+							<i class="fa fa-circle-o"></i>
+							Egreso</a>
+					</li>
+				</ul>
+			</li>
+			{% endif %}
+
+		</ul>
+	</section>
+	<!-- /.sidebar -->
+</aside>

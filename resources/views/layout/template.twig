@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>
+			{{ nombreApp(titulo) }}</title>
+		<!-- Tell the browser to be responsive to screen width -->
+		<meta name="url-base" content="{{ urlBase() }}">
+		<meta
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.7 -->
+		<link
+		rel="stylesheet" href="{{ resources('assets/plugins/bootstrap/dist/css/bootstrap.min.css') }}">
+		<!-- Font Awesome -->
+		<link
+		rel="stylesheet" href="{{ resources('assets/plugins/font-awesome/css/font-awesome.min.css') }}">
+		<!-- Ionicons -->
+		<link
+		rel="stylesheet" href="{{ resources('assets/plugins/Ionicons/css/ionicons.min.css') }}">
+		<!-- Theme style -->
+		<link
+		rel="stylesheet" href="{{ resources('assets/dist/css/AdminLTE.min.css') }}">
+		<!-- AdminLTE Skins. Choose a skin from the css/skins
+				         folder instead of downloading all of them to reduce the load. -->
+		<link rel="stylesheet" href="{{ resources('assets/dist/css/skins/_all-skins.min.css') }}"> {% block css %}{% endblock %}
+
+		<!-- Google Font -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+	</head>
+	<body
+		class="hold-transition skin-blue sidebar-mini">
+		<!-- Site wrapper -->
+		<div
+			class="wrapper" id="app">
+
+			<!-- Header -->
+			{% include 'layout/header.twig' %}
+
+			<!-- =============================================== -->
+
+			<!-- Menu derecho -->
+			{% include 'layout/menu.twig' %}
+
+			<!-- =============================================== -->
+
+			<!-- Contenido -->{% block contenido %}
+			{% endblock %}
+			<!-- /.Contenido -->
+
+			<!-- Footer -->
+			{% include 'layout/footer.twig' %}
+
+			<!-- Add the sidebar's background. This div must be placed
+						         immediately after the control sidebar --><div class="control-sidebar-bg"> </div>
+
+		</div>
+		<!-- ./wrapper -->
+
+		<!-- jQuery 3 -->
+		<script src="{{ resources('assets/plugins/jquery/dist/jquery.min.js') }}"></script>
+		<!-- Bootstrap 3.3.7 -->
+		<script src="{{ resources('assets/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+		<!-- SlimScroll -->
+		<script src="{{ resources('assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+		<!-- FastClick -->
+		<script src="{{ resources('assets/plugins/fastclick/lib/fastclick.js') }}"></script>
+		<!-- AdminLTE App -->
+		<script src="{{ resources('assets/dist/js/adminlte.min.js') }}"></script>
+
+		{# <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> #}
+		{# <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> #}
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		<!-- AdminLTE for demo purposes -->
+		<script src="{{ resources('assets/dist/js/demo.js') }}"></script>
+		<script src="{{ resources('assets/script/recursos/global.js') }}"></script>
+		<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+		<script src="{{ resources('assets/script/recursos/socket.js') }}"></script>
+
+		{% block js %}{% endblock %}
+
+	</body>
+</html>

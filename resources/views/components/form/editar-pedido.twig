@@ -1,0 +1,152 @@
+<div class="box" id="cajaEditar" style="display: none;">
+
+	<div class="box-header with-border">
+
+		<h3 class="box-title">Información</h3>
+
+		<button type="button" class="btn btn-danger pull-right" id="btnRegresar">Regresar
+		</button>
+
+	</div>
+
+	<form role="form" class="formAjax" action="{{ urlBase('pedido/update/cocina') }}" method="POST">
+
+		<div class="box-body">
+
+			<div class="col-md-12">
+
+				<div class="form-group">
+					<input type="hidden" id="codigo" name="codigo" value="0">
+					<input type="hidden" id="lista" name="lista" value="">
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="mesa" class="control-label">Mesa</label>
+
+						<input type="text" class="form-control" id="mesa" name="mesa" value="" disabled>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+
+					<div class="form-group">
+						<label for="persona" class="control-label">Personas</label>
+
+						<input type="number" class="form-control" id="persona" name="persona" value="1" min="1">
+					</div>
+
+				</div>
+
+				<div class="col-md-6">
+
+					<div class="form-group">
+						<label for="cliente" class="control-label">Clientes</label>
+
+						<select name="cliente" id="cliente" class="form-control select2" style="width: 100%;">
+							{% for cliente in clientes %}
+								<option value="{{ cliente.id }}">{{ cliente.nombre }}</option>
+							{% endfor %}
+						</select>
+					</div>
+
+				</div>
+
+				<div class="col-md-6">
+
+					<div class="form-group">
+						<label for="nota" class="control-label">Nota</label>
+
+						<textarea class="form-control" name="nota" id="nota" rows="3"></textarea>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="col-md-12">
+				<div class="col-md-12">
+					<h3>Extras</h3>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-4 form-group">
+						<input type="text" class="form-control" id="nombreEx" placeholder="Nombre">
+					</div>
+					<div class="col-md-2 form-group">
+						<input type="text" class="form-control" id="precioEx" placeholder="Precio">
+					</div>
+					<div class="col-md-2 form-group">
+						<input type="number" min="1" class="form-control" id="cantidadEx" value="1" placeholder="Cantidad">
+					</div>
+					<div class="col-md-2 form-group">
+						<button type="button" class="btn btn-success btn-sm btn-block" id="btnAgregarEtiqueta">
+							<i class="fa fa-plus"></i>
+						</button>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-12" style="margin-bottom: 15px;">
+				<table class="display responsive nowrap" id="lista-productos" style="width:100%">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Precio</th>
+							<th>Operacion</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in lista %}
+							<tr>
+								<th class="bg {{ item.categoria == 'plato' ? 'bg-green' : 'bg-blue' }}">{{item.nombre}}</th>
+								<th>S/.{{item.precio}}</th>
+								<th>
+									<button type="button" data-id="{{item.id}}" data-nombre="{{item.nombre}}" data-precio="{{item.precio}}" data-cantidad="1" data-descripcion="{{item.descripcion}}" data-tipo="{{item.categoria}}" class="btn btn-warning btn-sm btnInfo">
+										<i class="fa fa-info"></i>
+									</button>
+									<button type="button" data-id="{{item.id}}" data-nombre="{{item.nombre}}" data-precio="{{item.precio}}" data-cantidad="1" data-nota="1" data-tipo="{{item.categoria}}" class="btn btn-success btn-sm btnAgregar">
+										<i class="fa fa-cart-plus"></i>
+									</button>
+								</th>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+
+			<div class="col-md-12">
+				<diV class="table-responsive">
+					<table class="table table-hove" style="width:100%">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Nombre</th>
+								<th>S/.</th>
+								<th>Cant.</th>
+								<th>Subtotal</th>
+							</tr>
+						</thead>
+						<tbody id="lista-pedido"></tbody>
+						<tfoot>
+							<tr>
+								<th colspan="4">Total S/.</th>
+								<th id="tdTotal">0.00</th>
+							</tr>
+						</tfoot>
+					</table>
+				</diV>
+			</div>
+
+		</div>
+
+		<div class="box-footer">
+
+			<button class="btn btn-block btn-success" type="submit">
+				Actualizar pedido
+			</button>
+		</div>
+
+	</form>
+
+</div>

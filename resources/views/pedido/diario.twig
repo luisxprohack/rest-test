@@ -1,0 +1,341 @@
+{% extends "layout/template.twig" %}
+
+{% block css %}
+	<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+	<link
+	rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
+	<!-- Select2 -->
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block contenido %}
+	<div
+		class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+				Pedido Diario
+			</h1>
+			<ol class="breadcrumb">
+				<li>
+					<i class="fa fa-dashboard"></i>
+					Venta
+				</li>
+				<li class="active">Pedido Diario</li>
+			</ol>
+		</section>
+
+		<!-- Main content -->
+		<section
+			class="content">
+
+			<!-- Default box -->
+			<div class="box" id="cajaPedido">
+				<div class="box-header with-border">
+
+					<h3 class="box-title">Reporte</h3>
+
+					<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-egreso">Egreso
+					</button>
+
+				</div>
+				<div class="box-body">
+
+					<div class="nav-tabs-custom">
+
+						<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+							<li class="active">
+								<a href="#sin_estado" data-toggle="tab">
+									<i class="fa fa-check"></i>
+									Recibido</a>
+							</li>
+							<li>
+								<a href="#atendido" data-toggle="tab">
+									<i class="fa fa-calendar"></i>
+									Atendido</a>
+							</li>
+							<li>
+								<a href="#cancelado" data-toggle="tab">
+									<i class="fa fa-times-rectangle"></i>
+									Cancelado</a>
+							</li>
+							<li>
+								<a href="#egreso" data-toggle="tab">
+									<i class="fa fa-money"></i>
+									Egreso</a>
+							</li>
+						</ul>
+
+						<div
+							class="tab-content">
+
+							{#  Table 1 #}
+							<div class="tab-pane fade active in" id="sin_estado">
+								<table id="table-data1" data-estado="0" class="display nowrap" style="width: 100%;">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Mesa</th>
+											<th>Cliente</th>
+											<th>Cant. Person.</th>
+											<th>Pagado</th>
+											<th>Estado</th>
+											<th>Total</th>
+											<th>Opciones</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th>#</th>
+											<th>Mesa</th>
+											<th>Cliente</th>
+											<th>Cant. Person.</th>
+											<th>Pagado</th>
+											<th>Estado</th>
+											<th>Total</th>
+											<th>Opciones</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+
+							{#  Table 2 #}
+							<div class="tab-pane fade" id="atendido">
+								<table id="table-data2" data-estado="1" class="display nowrap" style="width: 100%;">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Mesa</th>
+											<th>Cliente</th>
+											<th>Cant. Person.</th>
+											<th>Pagado</th>
+											<th>Estado</th>
+											<th>Total</th>
+											<th>Opciones</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th>#</th>
+											<th>Mesa</th>
+											<th>Cliente</th>
+											<th>Cant. Person.</th>
+											<th>Pagado</th>
+											<th>Estado</th>
+											<th>Total</th>
+											<th>Opciones</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+
+							{#  Table 3 #}
+							<div class="tab-pane fade" id="cancelado">
+								<table id="table-data3" data-estado="2" class="display nowrap" style="width: 100%;">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Mesa</th>
+											<th>Cliente</th>
+											<th>Cant. Person.</th>
+											<th>Pagado</th>
+											<th>Estado</th>
+											<th>Total</th>
+											<th>Opciones</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th>#</th>
+											<th>Mesa</th>
+											<th>Cliente</th>
+											<th>Cant. Person.</th>
+											<th>Pagado</th>
+											<th>Estado</th>
+											<th>Total</th>
+											<th>Opciones</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+
+							{#  Table 4 #}
+							<div class="tab-pane fade" id="egreso">
+								<table id="table-data4" class="display nowrap" style="width: 100%;">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nombre</th>
+											<th>Descripcion</th>
+											<th>Monto</th>
+											<th>Fecha</th>
+											<th>Opciones</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th>#</th>
+											<th>Nombre</th>
+											<th>Descripcion</th>
+											<th>Monto</th>
+											<th>Fecha</th>
+											<th>Opciones</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+				<!-- /.box-body -->
+				<div class="box-footer">
+					Footer
+				</div>
+				<!-- /.box-footer-->
+			</div>
+			<!-- /.box -->
+
+			{% include 'components/form/editar-pedido.twig' %}
+
+		</section>
+		<!-- /.content -->
+
+		{# Modal #}
+		<div class="modal fade" id="modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Detalle</h4>
+					</div>
+
+					<form role="form" class="formAjax" action="{{ urlBase('pedido/store') }}" method="post">
+						<div class="modal-body">
+							<div class="box-body">
+								<div class="row">
+
+									<div class="col-12">
+										<table class="table table-bordered" style="width: 100%;">
+											<thead>
+												<tr>
+													<th>Nombre</th>
+													<th>Precio</th>
+													<th>Cantidad</th>
+													<th>Subtotal</th>
+												</tr>
+											</thead>
+											<tbody id="table-detalle"></tbody>
+											<tbody>
+												<tr>
+													<th colspan="1">Nota</th>
+													<td colspan="3" id="tdNota"></td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<th colspan="3">Total</th>
+													<th id="tdTotal"></th>
+												</tr>
+											</tfoot>
+										</table>
+
+									</div>
+
+								</div>
+							</div>
+							<!-- /.box-body -->
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+						</div>
+					</form>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+
+		{% include 'components/modal/info-producto.twig' %}
+
+		<div class="modal fade" id="modal-egreso">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Información</h4>
+					</div>
+
+					<form role="form" class="formAjax" action="{{ urlBase('egreso/store') }}" method="post">
+						<div class="modal-body">
+							<div class="box-body">
+								<div class="row">
+
+									<div class="col-6">
+
+										<div class="form-group">
+											<input type="hidden" name="codigo" id="codigoE" value="0">
+										</div>
+
+										<div class="form-group">
+											<label for="nombreE">Nombre</label>
+											<input type="text" class="form-control" name="nombre" id="nombreE" maxlength="200">
+										</div>
+
+										<div class="form-group">
+											<label for="descripcionE">Descripcion</label>
+											<textarea class="form-control" rows="3" name="descripcion" id="descripcionE"></textarea>
+										</div>
+
+										<div class="form-group">
+											<label for="montoE">Monto</label>
+											<input type="text" class="form-control" name="monto" id="montoE" maxlength="12">
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+							<!-- /.box-body -->
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</div>
+					</form>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+
+	</div>
+{% endblock %}
+
+{% block js %}
+	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+
+	<!-- Select2 -->
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+	<script src="{{ resources('assets/script/pedido/diario.js') }}"></script>
+{% endblock %}

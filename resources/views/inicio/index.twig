@@ -1,0 +1,148 @@
+{% extends "layout/template.twig" %}
+
+{% block css %}
+	<!-- Morris chart -->
+	<link
+	rel="stylesheet" href="{{ resources('assets/plugins/morris.js/morris.css') }}">
+	<!-- jvectormap -->
+	<link
+	rel="stylesheet" href="{{ resources('assets/plugins/jvectormap/jquery-jvectormap.css') }}">
+	<!-- Daterange picker -->
+	<link rel="stylesheet" href="{{ resources('assets/plugins/bootstrap-daterangepicker/daterangepicker.css') }}">
+{% endblock %}
+
+{% block contenido %}
+	<div
+		class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+				Resumen
+				<small>Panel de Control</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li>
+					<i class="fa fa-dashboard"></i>
+					Incio
+				</li>
+				<li class="active">Resumen</li>
+			</ol>
+		</section>
+
+		<!-- Main content -->
+		<section
+			class="content">
+			<!-- Small boxes (Stat box) -->
+			<div class="row">
+
+				<div
+					class="col-lg-4 col-xs-12">
+					<!-- small box -->
+					<div class="small-box bg-aqua">
+						<div class="inner">
+							<h3>{{pedido.cantidad}}</h3>
+
+							<p>Pedidos diarios</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-clipboard"></i>
+						</div>
+						
+					</div>
+				</div>
+				<!-- ./col -->
+
+				<div
+					class="col-lg-4 col-xs-12">
+					<!-- small box -->
+					<div class="small-box bg-green">
+						<div class="inner">
+							<h3>S/.{{pedido.total}}</h3>
+
+							<p>Venta total</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-social-usd"></i>
+						</div>
+						
+					</div>
+				</div>
+				<!-- ./col -->
+
+				<div
+					class="col-lg-4 col-xs-12">
+					<!-- small box -->
+					<div class="small-box bg-yellow">
+						<div class="inner">
+							<h3>{{empleado.cantidad}}</h3>
+
+							<p>Empleados registrados</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-person-add"></i>
+						</div>
+						
+					</div>
+				</div>
+				<!-- ./col -->
+
+				<div
+					class="col-lg-4 col-xs-12">
+					<!-- small box -->
+					<div class="small-box bg-red">
+						<div class="inner">
+							<h3>{{plato.cantidad}}</h3>
+
+							<p>Platos registrados</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-fork"></i>
+						</div>
+						
+					</div>
+				</div>
+				<!-- ./col -->
+
+				<div
+					class="col-lg-4 col-xs-12">
+					<!-- small box -->
+					<div class="small-box bg-aqua">
+						<div class="inner">
+							<h3>S/.{{egreso.total}}</h3>
+
+							<p>Egreso</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-social-usd"></i>
+						</div>
+						
+					</div>
+				</div>
+
+				<div
+					class="col-lg-4 col-xs-12">
+					<!-- small box -->
+					<div class="small-box bg-green">
+						<div class="inner">
+							<h3>S/.{{ganancia}}</h3>
+
+							<p>Ganancia Total</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-social-usd"></i>
+						</div>
+						
+					</div>
+				</div>
+
+			</div>
+			<!-- /.row -->
+
+			<!-- /.row (main row) -->
+
+		</section>
+		<!-- /.content -->
+	</div>
+{% endblock %}
+
+{% block js %}{% endblock %}

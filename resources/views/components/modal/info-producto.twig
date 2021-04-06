@@ -1,0 +1,66 @@
+<div class="modal fade" id="modal-producto">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Información</h4>
+			</div>
+			<form role="form" id="formInfo">
+				<div
+					class="modal-body">
+					<!-- form start -->
+
+					<div class="box-body">
+						<div class="row">
+							<div class="col-6">
+
+								<div class="form-group">
+									<input type="hidden" id="id" name="id" value="">
+									<input type="hidden" id="tipo" name="tipo" value="">
+								</div>
+
+								<div class="form-group">
+									<label for="txtNombre">Nombre</label>
+									<input type="text" class="form-control" name="txtNombre" id="txtNombre" maxlength="200" disabled>
+								</div>
+
+								<div class="form-group">
+									<label for="txtDescripcion">Descripcion</label>
+									<textarea class="form-control" name="txtDescripcion" id="txtDescripcion" rows="3" disabled></textarea>
+								</div>
+
+								<div class="form-group">
+									<label for="txtPrecio">Precio</label>
+									<input type="text" class="form-control" name="txtPrecio" id="txtPrecio" disabled>
+								</div>
+
+                                <div class="form-group">
+									<label for="txtDescuento">Descuento</label>
+									<input type="text" class="form-control" name="txtDescuento" id="txtDescuento">
+								</div>
+
+								<div class="form-group">
+									<label for="txtCantidad" class="control-label">Cantidad</label>
+
+									<input type="number" class="form-control" id="txtCantidad" name="txtCantidad" value="1" min="1">
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					<!-- /.box-body -->
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Agregar</button>
+				</div>
+			</form>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>

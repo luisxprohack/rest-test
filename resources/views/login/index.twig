@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ nombreApp(titulo) }}</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="{{ resources('assets/plugins/bootstrap/dist/css/bootstrap.min.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ resources('assets/plugins/font-awesome/css/font-awesome.min.css') }}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="{{ resources('assets/plugins/Ionicons/css/ionicons.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ resources('assets/dist/css/AdminLTE.min.css') }}">
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="#"><b>Iniciar</b> Sesión</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+
+        {% if message %}
+        <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-ban"></i> Mensaje!</h4>
+                {{ message }}
+              </div>
+        {% endif %}
+
+        <form action="{{ urlBase('auth') }}" method="POST">
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Cuenta" name="email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Contraseña" name="pass">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <!-- /.col -->
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+
+    </div>
+    <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery 3 -->
+<script src="{{ resources('assets/plugins/jquery/dist/jquery.min.js') }}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{{ resources('assets/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+</body>
+</html>
